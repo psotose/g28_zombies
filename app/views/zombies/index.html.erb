@@ -1,0 +1,21 @@
+<h1 class='text-center'>Zombies paradise</h1>
+
+<% @zombies.each_slice(3) do |three_zombies|%>
+  <div class= "card-deck">
+   <% three_zombies.each do |zombie| %>  
+    <div class="card" style="width: 18rem;">
+      <%= image_tag zombie.picture, class:'card-img-top img-fluid', alt:"zombie" %>
+      <div class="card-body">
+        <h5 class="card-title"><%= zombie.weight  %></h5>
+        <h5 class="card-title"><%= zombie.kills %></h5>
+        <h5 class="card-title"><%= zombie.weapon %></h5>
+        <%= link_to 'Show', zombie, class:'btn btn-primary' %>
+        <%= link_to 'Edit', edit_zombie_path(zombie), class:'btn btn-info' %>
+        <%= link_to 'Destroy', zombie, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn    btn-danger' %>  
+      </div>
+    </div>    
+     
+    <% end %>
+  </div>
+<% end %>
+<br>
